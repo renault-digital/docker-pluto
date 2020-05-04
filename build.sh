@@ -6,7 +6,10 @@
 # DOCKER_PASSWORD
 # API_TOKEN
 
-# set -ex
+set -ex
+
+image="renaultdigital/pluto"
+repo="fairwindsops/pluto"
 
 build() {
   echo "Found new version, building the image ${image}:${tag}"
@@ -31,9 +34,6 @@ build() {
   fi
 }
 
-image="renaultdigital/pluto"
-repo="fairwindsops/pluto"
-
 if [[ ${CI} == 'true' ]]; then
   tags=`curl -sL -H "Authorization: token ${API_TOKEN}"  https://api.github.com/repos/${repo}/releases |jq -r ".[].tag_name"| cut -c 2-`
 else
@@ -53,7 +53,14 @@ done
 echo "Update latest image with latest release"
 # output format for reference:
 # <html><body>You are being <a href="https://github.com/helm/helm/releases/tag/v2.14.3">redirected</a>.</body></html>
-latest=$(curl -sL https://api.github.com/repos/${repo}/releases/latest |jq -r ".tag_name"| cut -c 2-)
+
+
+if [[ ${CI} == 'true' ]]; then
+  latest=`curl -sL -H "Authorization: token ${API_TOKEN}"  https://api.github.com/repos/${repo}/releases/latest |jq -r ".tag_name"| cut -c 2-`
+else
+  latest=`curl -sL https://api.github.com/repos/${repo}/releases/latest |jq -r ".tag_name"| cut -c 2-`
+fi
+
 echo $latest
 
 if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
