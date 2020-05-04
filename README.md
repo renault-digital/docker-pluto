@@ -1,6 +1,6 @@
 # kubernetes pluto
 
-[![Build Status](https://travis-ci.com/renault-digital/docker-pluto.svg?token=ncotYzyGStjuDrTy46xs&branch=master)](https://travis-ci.com/renault-digital/docker-pluto)
+[![Build Status](https://travis-ci.com/renault-digital/docker-pluto.svg?branch=master)](https://travis-ci.com/renault-digital/docker-pluto)
 
 Auto-trigger docker build for [kubernetes pluto](https://github.com/fairwindsops/pluto) when new release is announced.
 

@@ -9,13 +9,13 @@ ARG VERSION
 ENV BASE_URL="https://github.com/fairwindsops/pluto/releases/download"
 ENV TAR_FILE="v${VERSION}/pluto_${VERSION}_linux_386.tar.gz"
 
+WORKDIR /apps
+
 RUN apk add --update --no-cache curl ca-certificates && \
     curl -L ${BASE_URL}/${TAR_FILE} | tar xvz && \
     mv pluto /usr/bin/pluto && \
     chmod +x /usr/bin/pluto && \
     rm -f /var/cache/apk/*
-
-WORKDIR /apps
 
 ENTRYPOINT ["pluto"]
 CMD ["--help"]
