@@ -26,11 +26,11 @@ https://hub.docker.com/r/renaultdigital/pluto/tags/
 
 # Usage
 
-    # mount current folders in container and generate README.md based on README.tmpl.md
-    docker run --rm -v $PWD:/build -w /build renaultdigital/pluto
+    # for help
+    docker run --rm renaultdigital/pluto
 
-    # Mount current folder in container and check if the generated doc is different from the REAME.md
-    docker run --rm -v $PWD:/build -w /build renaultdigital/pluto -d | diff README.md -
+    # mount current folders in container and output scan result
+    docker run --rm -v $PWD:/apps renaultdigital/pluto detect-files .
 
 # Why we need it
 
