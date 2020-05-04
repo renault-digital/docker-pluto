@@ -50,10 +50,7 @@ do
   fi
 done
 
-echo "Update latest image with latest release"
-# output format for reference:
-# <html><body>You are being <a href="https://github.com/helm/helm/releases/tag/v2.14.3">redirected</a>.</body></html>
-
+echo "Get latest version based on the latest Github release"
 
 if [[ ${CI} == 'true' ]]; then
   latest=`curl -sL -H "Authorization: token ${API_TOKEN}"  https://api.github.com/repos/${repo}/releases/latest |jq -r ".tag_name"| cut -c 2-`
@@ -61,7 +58,7 @@ else
   latest=`curl -sL https://api.github.com/repos/${repo}/releases/latest |jq -r ".tag_name"| cut -c 2-`
 fi
 
-echo $latest
+echo "Update latest image to ${latest}"
 
 if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == false ]]; then
   docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
