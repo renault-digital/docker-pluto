@@ -1,4 +1,4 @@
-# kubernetes pluto
+# pluto
 
 [![Build Status](https://travis-ci.com/renault-digital/docker-pluto.svg?branch=master)](https://travis-ci.com/renault-digital/docker-pluto)
 
@@ -14,11 +14,11 @@ Please avoid to use `latest` tag for any production deployment. Tag with right v
 
 ### Github Repo
 
-https://github.com/renault-digital/pluto
+https://github.com/renault-digital/docker-pluto
 
 ### Daily Travis CI build logs
 
-https://travis-ci.org/renault-digital/pluto
+https://travis-ci.org/renault-digital/docker-pluto
 
 ### Docker image tags
 
