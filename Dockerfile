@@ -4,9 +4,10 @@ FROM alpine:3
 # docker build --no-cache --build-arg VERSION=2.12.0 .
 
 ARG VERSION
+ARG NO_PREFIX_VERSION
 
 ENV BASE_URL="https://github.com/fairwindsops/pluto/releases/download"
-ENV TAR_FILE="v${VERSION}/pluto_${VERSION}_linux_386.tar.gz"
+ENV TAR_FILE="${VERSION}/pluto_${NO_PREFIX_VERSION}_linux_386.tar.gz"
 
 WORKDIR /apps
 

@@ -13,9 +13,10 @@ REPOSITORY="fairwindsops/pluto"
 
 build() {
   tag=$1
+  noPrefixVersion=$(echo "$tag" | cut -c2-)
 
   echo "Found new version, building the image ${IMAGE}:${tag}"
-  docker build --no-cache --build-arg VERSION="${tag}" -t ${IMAGE}:"${tag}" .
+  docker build --no-cache --build-arg VERSION="${tag}" --build-arg NO_PREFIX_VERSION="${noPrefixVersion}" -t ${IMAGE}:"${tag}" .
 
   if [[ "$TRAVIS_BRANCH" == "master" ]]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
