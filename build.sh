@@ -39,7 +39,7 @@ do
   echo "$status"
 
   if [[ "${status}" =~ "not found" ]]; then
-    echo build "$tag"
+    build "$tag"
   fi
 done
 
