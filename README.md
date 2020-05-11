@@ -44,6 +44,13 @@ Mostly it is used during CI/CD (continuous integration and continuous delivery) 
 * If not matched, build the image with release version and push to https://hub.docker.com/
 * Get the latest version from https://github.com/fairwindsops/pluto/releases/latest, pull the image with that version, tag as `renaultdigital/pluto:latest` and push to hub.docker.com
 
+# Contribution
+
+Before any contribution, test your code :
+
+- using our testing script: `.githooks/pre-commit`
+- by registering our githooks: `git config --local core.hooksPath .githooks/`
+
 # Credits
 
 - Borrowed from [docker-helm](https://github.com/renault-digital/docker-helm).

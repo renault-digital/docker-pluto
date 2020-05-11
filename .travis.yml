@@ -1,7 +1,10 @@
 sudo: required
 
+language: shell
+
 services:
   - docker
 
 script:
+  - .githooks/pre-commit
   - bash ./build.sh
