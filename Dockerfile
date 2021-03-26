@@ -7,7 +7,7 @@ ARG VERSION
 ARG NO_PREFIX_VERSION
 
 ENV BASE_URL="https://github.com/fairwindsops/pluto/releases/download"
-ENV TAR_FILE="${VERSION}/pluto_${NO_PREFIX_VERSION}_linux_386.tar.gz"
+ENV TAR_FILE="${VERSION}/pluto_${NO_PREFIX_VERSION}_linux_amd64.tar.gz"
 
 WORKDIR /apps
 
